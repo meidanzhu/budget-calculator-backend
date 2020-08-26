@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+grocery = Category.create(name: 'grocery')
+
+Expense.create([
+    {name: 'Target', description: 'Bought milk and cereal', price: 7.25, category: grocery}
+    # date:08/25/2020,
+])
