@@ -8,6 +8,5 @@
 grocery = Category.create(name: 'grocery')
 
 Expense.create([
-    {name: 'Target', description: 'Bought milk and cereal', price: 7.25, category: grocery}
-    # date:08/25/2020,
+    {name: 'Target', description: 'Bought milk and cereal', date: '2020-08-26', price: 7.25, category: grocery}
 ])
