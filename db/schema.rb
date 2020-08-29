@@ -12,22 +12,21 @@
 
 ActiveRecord::Schema.define(version: 2020_08_26_035615) do
 
+  create_table "budgets", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.float "price"
+    t.integer "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_budgets_on_category_id"
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "expenses", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.float "price"
-    t.date "date"
-    t.integer "category_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id"], name: "index_expenses_on_category_id"
-  end
-
-  add_foreign_key "expenses", "categories"
+  add_foreign_key "budgets", "categories"
 end

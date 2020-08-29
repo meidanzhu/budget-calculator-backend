@@ -1,10 +1,9 @@
-class CreateExpenses < ActiveRecord::Migration[6.0]
+class CreateBudgets < ActiveRecord::Migration[6.0]
   def change
-    create_table :expenses do |t|
+    create_table :budgets do |t|
       t.string :name
       t.string :description
       t.float :price
-      t.date :date
       t.belongs_to :category, null: false, foreign_key: true
 
       t.timestamps
