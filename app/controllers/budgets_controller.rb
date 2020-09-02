@@ -11,28 +11,38 @@ class BudgetsController < ApplicationController
 
     def create
         budget = Budget.new(budget_params)
+        budget.category_id = 1
+        # if params[:amount] < 0
+        #     budget.category_id = 1
+        # elsif params[:amount] > 0 
+        #     budget.category_id = 2
+
         if budget.save
             render json: BudgetSerializer.new(budget)
         else
             render json: {error: 'could not be created'}
         end
+        end
     end
 
     def update
         budget = Budget.find(params[:id])
-        budget.update(budget_params)
-        render json: BudgetSerializer.new(budget)
-    end
+        if budget.update(budget_params)
+            render json: BudgetSerializer.new(budget)
+        else
+            render json: {error: 'could not be updated'}
+        end
+    end 
 
     def destroy
         budget = Budget.find(params[:id])
         budget.destroy
-        render json: budget
+        render json: {message: "Successfully deleted #{budget.description}!"}
     end
 
     private
 
     def budget_params
-        params.require(:budget).permit(:name, :description, :price)
+        params.require(:budget).permit(:description, :amount)
     end
 end

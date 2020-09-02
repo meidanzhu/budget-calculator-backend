@@ -13,9 +13,8 @@
 ActiveRecord::Schema.define(version: 2020_08_26_035615) do
 
   create_table "budgets", force: :cascade do |t|
-    t.string "name"
     t.string "description"
-    t.float "price"
+    t.float "amount"
     t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

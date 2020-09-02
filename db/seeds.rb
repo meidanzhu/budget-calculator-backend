@@ -9,6 +9,8 @@ expense = Category.create(name: 'expense')
 income = Category.create(name: 'income')
 
 Budget.create([
-    {name: 'Grocery', description: 'Bought milk and cereal', price: 7.25, category: expense},
-    {name: 'Full-time job', description: 'Work 40 hours per week', price: 600.00, category: income}
+    {description: 'Bought milk and cereal', amount: 7.25, category: expense},
+    {description: 'Work 40 hours per week', amount: 600, category: income},
+    {description: 'Medical Bill', amount: 300, category: expense},
+    {description: 'Saving money', amount: 520, category: income}
 ])
